@@ -30,38 +30,24 @@ class MyView: NSView {
 		
 		scrollView.documentView = scrollContentContainer
 		
-		repeat {
-			let views: [String:NSView] = ["scrollView" : scrollView,
-										  "containerView" : scrollContentContainer]
-			
-			let constraintsH = NSLayoutConstraint.constraints(withVisualFormat: "H:|[containerView(==640)]|", options: [], metrics: nil, views: views)
-			let constraintsV = NSLayoutConstraint.constraints(withVisualFormat: "V:|[containerView(==800)]", options: [], metrics: nil, views: views)
-			
-			scrollView.contentView.addConstraints(constraintsH)
-			scrollView.contentView.addConstraints(constraintsV)
-			
-			
-		} while false
-		
 		myCustomView = MyCustomView(frame: scrollView.contentView.bounds)
 		scrollView.contentView.addSubview(myCustomView)
 		
-		repeat {
-			let views: [String:NSView] = ["scrollView" : scrollView,
-			                              "myView" : myCustomView,
-			                              "containerView" : scrollContentContainer]
-			
-			let constraintsH = NSLayoutConstraint.constraints(withVisualFormat: "H:|[myView(==640)]|", options: [], metrics: nil, views: views)
-			let constraintsV = NSLayoutConstraint.constraints(withVisualFormat: "V:|[myView(==800)]", options: [], metrics: nil, views: views)
-			
-//			myCustomView.addConstraints(constraintsH);
-//			myCustomView.addConstraints(constraintsV);
-			scrollView.contentView.addConstraints(constraintsH);
-			scrollView.contentView.addConstraints(constraintsV);
-			
-			
-		} while false
-
+		let views: [String:NSView] = ["scrollView" : scrollView,
+									  "myView" : myCustomView,
+									  "containerView" : scrollContentContainer]
+		
+		let cH1 = NSLayoutConstraint.constraints(withVisualFormat: "H:|[containerView(==640)]|", options: [], metrics: nil, views: views)
+		let cV1 = NSLayoutConstraint.constraints(withVisualFormat: "V:|[containerView(==800)]", options: [], metrics: nil, views: views)
+		
+		scrollView.contentView.addConstraints(cH1)
+		scrollView.contentView.addConstraints(cV1)
+		
+		let cH2 = NSLayoutConstraint.constraints(withVisualFormat: "H:|[myView(==640)]|", options: [], metrics: nil, views: views)
+		let cV2 = NSLayoutConstraint.constraints(withVisualFormat: "V:|[myView(==800)]", options: [], metrics: nil, views: views)
+		
+		scrollView.contentView.addConstraints(cH2);
+		scrollView.contentView.addConstraints(cV2);
 	}
 
     override func draw(_ dirtyRect: NSRect) {
