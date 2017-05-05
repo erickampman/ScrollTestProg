@@ -9,19 +9,8 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
-
-		// Do any additional setup after loading the view.
-	}
-
-	override var representedObject: Any? {
-		didSet {
-		// Update the view, if already loaded.
-		}
-	}
-
-
+	// this contained attempts that didn't work out. However, it might
+	// make sense to move the view and constraints code of MyView to this
+	// file.
 }
 
